@@ -122,7 +122,7 @@ namespace moonsniff {
 			uint16_t rx = rte_eth_rx_burst(port_id, queue_id, rx_pkts, nb_pkts);
 
 			for (int i = 0; i < rx; i++) {
-				if ((rx_pkts[i]->ol_flags | PKT_RX_IEEE1588_TMST) != 0) {
+				if ((rx_pkts[i]->ol_flags & RTE_MBUF_F_RX_IEEE1588_TMST) != 0) {
 					uint32_t* timestamp32 = (uint32_t*)((uint8_t*)rx_pkts[i]->buf_addr + rx_pkts[i]->data_off + rx_pkts[i]->pkt_len - 8);
 					uint32_t low = timestamp32[0];
 					uint32_t high = timestamp32[1];

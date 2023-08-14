@@ -52,7 +52,8 @@ static struct rte_mbuf* get_delay_pkt_bad_crc(struct rte_mempool* pool, uint32_t
 	// account for preamble, sfd, and ifg (CRC is disabled)
 	pkt->data_len = delay - 20;
 	pkt->pkt_len = delay - 20;
-	pkt->ol_flags |= PKT_TX_NO_CRC_CSUM;
+	// TODO: must be added to dpdk fork
+	// pkt->ol_flags |= PKT_TX_NO_CRC_CSUM;
 	current += delay;
 	return pkt;
 }
@@ -67,7 +68,8 @@ void moongen_send_all_packets_with_delay_bad_crc(uint8_t port_id, uint16_t queue
 	for (uint16_t i = 0; i < num_pkts; i++) {
 		struct rte_mbuf* pkt = load_pkts[i];
 		// desired inter-frame spacing is encoded in the hash 'usr' field
-		uint32_t delay = (uint32_t) pkt->udata64;
+		// TODO: disabled for first tests
+		uint32_t delay = 1; // (uint32_t) pkt->udata64;
 		// step 1: generate delay-packets
 		while (delay > 0) {
 			struct rte_mbuf* pkt = get_delay_pkt_bad_crc(pool, &delay, min_pkt_size);
