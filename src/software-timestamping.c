@@ -6,8 +6,8 @@
 #include <rte_mbuf.h>
 #include <rte_cycles.h>
 
-#include "rdtsc.h"
-#include "lifecycle.h"
+#include <libmoon/rdtsc.h>
+#include <libmoon/lifecycle.h>
 
 // software timestamping
 void moongen_send_packet_with_timestamp(uint8_t port_id, uint16_t queue_id, struct rte_mbuf* pkt, uint16_t offs) {

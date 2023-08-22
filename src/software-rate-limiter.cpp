@@ -11,8 +11,8 @@
 #include <atomic>
 #include <iostream>
 #include <unistd.h>
-#include "ring.h"
-#include "lifecycle.hpp"
+#include <libmoon/ring.h>
+#include <libmoon/lifecycle.hpp>
 
 // required for gcc 4.7 for some reason
 // ???

@@ -6,7 +6,7 @@
 
 #include <rte_ethdev.h>
 #include <rte_mbuf.h>
-#include "lifecycle.hpp"
+#include <libmoon/lifecycle.hpp>
 
 #define UINT24_MAX 16777215
 #define INDEX_MASK (uint32_t) 0x00FFFFFF

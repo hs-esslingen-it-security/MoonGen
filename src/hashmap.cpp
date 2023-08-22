@@ -11,7 +11,7 @@
 #include <tbb/concurrent_hash_map.h>
 #include <cstdint>
 #include <iostream>
-#include <c_bindings.h>
+#include <highwayhash/c_bindings.h>
 #include <deque>
 
 namespace hash_map {

@@ -3,8 +3,7 @@
 #include <rte_ethdev.h>
 #include <rte_mbuf.h>
 #include <rte_mempool.h>
-
-#include "device.h"
+#include <libmoon/device.h>
 
 static uint64_t bad_pkts_sent[RTE_MAX_ETHPORTS];
 static uint64_t bad_bytes_sent[RTE_MAX_ETHPORTS];
