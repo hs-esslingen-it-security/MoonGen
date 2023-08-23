@@ -27,21 +27,25 @@ build:
 	@echo "Successfully built MoonGen"
 
 .PHONY: install
-install:
+install: ## Install MoonGen
 	@echo "Installing MoonGen..."
 	cd $(build_dir) && \
 	sudo meson install
 	@echo "Successfully installed MoonGen"
 
 .PHONY: uninstall
-uninstall:
+uninstall: ## Uninstall MoonGen (use uninstall-all to uninstall the dependencies too)
 	cd $(build_dir) && \
 	sudo ninja uninstall || true
 
+	@echo "Uninstalled MoonGen"
+
+.PHONY: uninstall-all
+uninstall-all: uninstall ## Uninstall MoonGen and all dependencies
 	cd libmoon && \
 	sudo $(MAKE) uninstall || true
 
-	@echo "Uninstalled MoonGen and all dependencies"
+	@echo "Uninstalled all dependencies"
 
 .PHONY: clean
 clean: ## Clean the build directory of MoonGen, not the dependencies (this does NOT delete all build files, use wipe for this)
