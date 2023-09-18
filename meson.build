@@ -5,6 +5,7 @@ project(
     'MoonGen',
     'c',
     'cpp',
+    version: '1.0.0',
     # default_options: {
     # 	'pkg_config_path': './libmoon/lib-build/dpdk/lib/x86_64-linux-gnu/pkgconfig/,./libmoon/lib-build/luajit/lib/pkgconfig/,./libmoon/lib-build/tbb/lib/pkgconfig/'
     # }
@@ -60,6 +61,7 @@ executable(
     dependencies: dependencies,
     # Export all (not only used) symbols so that LuaJIT can access them
     link_args: ['-rdynamic'],
+    cpp_args: ['-std=c++11'],
     install: true
     # build_rpath: '$ORIGIN/../libmoon/lib-build/dpdk/lib/x86_64-linux-gnu:$ORIGIN/../libmoon/lib-build/luajit/lib:$ORIGIN/../libmoon/lib-build/tbb/lib'
     # build_rpath: '/home/markus/git/MoonGen/libmoon/lib-build/dpdk/lib/x86_64-linux-gnu:/home/markus/git/MoonGen/libmoon/lib-build/luajit/lib:/home/markus/git/MoonGen/libmoon/lib-build/tbb/lib'
